@@ -1,0 +1,5 @@
+development:
+  datasourceUrl: postgresql://david@localhost:5432/mydb?schema=public
+
+test:
+  datasourceUrl: postgresql://david@localhost:5432/mydb_{{ JEST_WORKER_ID }}?schema=public

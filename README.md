@@ -1,6 +1,6 @@
 # Core Prisma
 
-[![npm version](https://badge.fury.io/js/@universal-packages%2Fcore-storage.svg)](https://www.npmjs.com/package/@universal-packages/core-prisma)
+[![npm version](https://badge.fury.io/js/@universal-packages%2Fcore-prisma.svg)](https://www.npmjs.com/package/@universal-packages/core-prisma)
 [![Testing](https://github.com/universal-packages/universal-core-prisma/actions/workflows/testing.yml/badge.svg)](https://github.com/universal-packages/universal-core-prisma/actions/workflows/testing.yml)
 [![codecov](https://codecov.io/gh/universal-packages/universal-core-prisma/branch/main/graph/badge.svg?token=CXPJSN8IGL)](https://codecov.io/gh/universal-packages/universal-core-prisma)
 
