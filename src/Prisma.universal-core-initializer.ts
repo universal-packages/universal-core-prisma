@@ -28,7 +28,13 @@ export default class PrismaInitializer extends CoreInitializer {
 
     this.currentSubProcess = core.developer.terminalPresenter.setSubProcess({
       command: 'npx',
-      args: ['prisma', 'init'],
+      args: [
+        'prisma',
+        'init',
+        ...Object.keys(this.args)
+          .map((key) => [key.length === 1 ? `-${key}` : `--${key}`, this.args[key]])
+          .flat()
+      ],
       workingDirectory: './tmp'
     })
     await this.currentSubProcess.run()
