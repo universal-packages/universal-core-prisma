@@ -1,0 +1,69 @@
+{
+  "name": "@universal-packages/core-prisma",
+  "version": "0.0.0",
+  "description": "Prisma universal-core abstraction.",
+  "author": "David De Anda <david@universal-packages.com> (https://github.com/universal-packages)",
+  "license": "MIT",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "repository": "git@github.com:universal-packages/universal-core-prisma.git",
+  "scripts": {
+    "build": "tsc --p tsconfig.dis.json",
+    "test": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:clear": "jest --clearCache",
+    "format": "prettier --write \"./{src,tests}/**/*.{ts,tsx,js,jsx,json}\"",
+    "update-universal-dependencies": "umaintenance update-universal-dependencies"
+  },
+  "peerDependencies": {
+    "@universal-packages/core": "^1.29.0"
+  },
+  "devDependencies": {
+    "@prisma/client": "^5.21.1",
+    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+    "@types/express": "^4.17.14",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^18.11.9",
+    "@universal-packages/core-jest": "^1.4.0",
+    "@universal-packages/logger-jest": "^1.0.7",
+    "@universal-packages/maintenance": "^1.6.9",
+    "@universal-packages/sub-process-jest": "^1.1.6",
+    "jest": "^29.7.0",
+    "prettier": "^3.0.3",
+    "prisma": "^5.21.1",
+    "ts-jest": "^29.1.2",
+    "typescript": "^5.4.3"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "collectCoverageFrom": [
+      "src/**/*.ts"
+    ],
+    "setupFilesAfterEnv": [
+      "@universal-packages/core-jest",
+      "@universal-packages/logger-jest",
+      "@universal-packages/sub-process-jest",
+      "<rootDir>/tests/setup.ts"
+    ]
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "printWidth": 180,
+    "trailingComma": "none",
+    "plugins": [
+      "@trivago/prettier-plugin-sort-imports"
+    ],
+    "importOrder": [
+      "^[./]"
+    ],
+    "importOrderSeparation": true,
+    "importOrderSortSpecifiers": true,
+    "importOrderParserPlugins": [
+      "typescript",
+      "jsx",
+      "classProperties",
+      "decorators-legacy"
+    ]
+  }
+}
