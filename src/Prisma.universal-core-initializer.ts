@@ -32,7 +32,7 @@ export default class PrismaInitializer extends CoreInitializer {
         'prisma',
         'init',
         ...Object.keys(this.args)
-          .filter((key) => !['source', 'src', 'typescript', 'ts'].includes(key))
+          .filter((key) => ['datasource-provider', 'generator-provider', 'preview-feature', 'output', 'url'].includes(key))
           .map((key) => [key.length === 1 ? `-${key}` : `--${key}`, this.args[key]])
           .flat()
       ],
