@@ -16,7 +16,7 @@
     "update-universal-dependencies": "umaintenance update-universal-dependencies"
   },
   "peerDependencies": {
-    "@universal-packages/core": "^1.29.3"
+    "@universal-packages/core": "^1.30.0"
   },
   "devDependencies": {
     "@prisma/client": "^5.21.1",
@@ -24,10 +24,10 @@
     "@types/express": "^4.17.14",
     "@types/jest": "^29.5.14",
     "@types/node": "^18.11.9",
-    "@universal-packages/core-jest": "^1.4.3",
-    "@universal-packages/logger-jest": "^1.0.9",
-    "@universal-packages/maintenance": "^1.6.12",
-    "@universal-packages/sub-process-jest": "^1.1.7",
+    "@universal-packages/core-jest": "^1.5.0",
+    "@universal-packages/logger-jest": "^1.1.0",
+    "@universal-packages/maintenance": "^1.7.0",
+    "@universal-packages/sub-process-jest": "^1.2.1",
     "jest": "^29.7.0",
     "prettier": "^3.4.1",
     "prisma": "^5.21.1",
