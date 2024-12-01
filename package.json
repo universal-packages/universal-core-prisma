@@ -24,7 +24,7 @@
     "@types/express": "^4.17.14",
     "@types/jest": "^29.5.14",
     "@types/node": "^18.11.9",
-    "@universal-packages/core-jest": "^1.5.5",
+    "@universal-packages/core-jest": "^1.5.6",
     "@universal-packages/logger-jest": "^1.1.2",
     "@universal-packages/maintenance": "^1.7.3",
     "@universal-packages/sub-process-jest": "^1.2.2",
