@@ -8,6 +8,7 @@ import { PrismaModuleConfig } from './types'
 export default class PrismaModule extends CoreModule<PrismaModuleConfig> {
   public static readonly moduleName = 'prisma'
   public static readonly description = 'Prisma ORM module'
+  public static readonly loadPriority = 50
 
   public subject: PrismaClient
 

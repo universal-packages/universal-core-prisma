@@ -82,7 +82,10 @@ export default class PrismaTask extends CoreTask {
 
   private async runTestAdditional(): Promise<void> {
     if (process.env['NODE_ENV'] === 'development' || process.env['SELF_TEST'] === 'true') {
-      if (this.directive === 'migrate' && ['dev', 'reset', 'deploy'].includes(this.directiveOptions[0])) {
+      const isMigrationMutation = this.directive === 'migrate' && ['dev', 'reset', 'deploy'].includes(this.directiveOptions[0])
+      const idDbMutation = this.directive === 'db' && this.directiveOptions[0] === 'push'
+
+      if (isMigrationMutation && idDbMutation) {
         const cpuCount = os.cpus().length
         const dbName = this.dbUrl.split('/').pop().split('?')[0]
         const dbBaseTestUrl = this.dbUrl.replace(/(postgresql:\/\/.*@.*:\d+\/)[^?]+/, '$1{{db-name}}')
@@ -110,7 +113,7 @@ export default class PrismaTask extends CoreTask {
 
   private buildSubProcess(dbUrl: string): SubProcess {
     const argsArray = Object.keys(this.args)
-      .filter((key) => key !== 'schema')
+      .filter((key) => key !== 'schema' && key.toLowerCase() === key)
       .map((key) => [key.length === 1 ? `-${key}` : `--${key}`, this.args[key]])
       .flat()
 
