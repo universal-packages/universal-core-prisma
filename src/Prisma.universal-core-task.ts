@@ -85,13 +85,14 @@ export default class PrismaTask extends CoreTask {
       const isMigrationMutation = this.directive === 'migrate' && ['dev', 'reset', 'deploy'].includes(this.directiveOptions[0])
       const idDbMutation = this.directive === 'db' && this.directiveOptions[0] === 'push'
 
-      if (isMigrationMutation && idDbMutation) {
+      if (isMigrationMutation || idDbMutation) {
         const cpuCount = os.cpus().length
         const dbName = this.dbUrl.split('/').pop().split('?')[0]
-        const dbBaseTestUrl = this.dbUrl.replace(/(postgresql:\/\/.*@.*:\d+\/)[^?]+/, '$1{{db-name}}')
+        const dbNameTest = dbName.includes('development') ? dbName.replace('development', 'test') : `${dbName}-test`;
+        const dbBaseTestUrl = this.dbUrl.replace(dbName, '{{db-name}}');
 
         for (let i = 0; i <= cpuCount; i++) {
-          const currentDbTestUrl = dbBaseTestUrl.replace('{{db-name}}', `${dbName}_${i}`)
+          const currentDbTestUrl = dbBaseTestUrl.replace('{{db-name}}', `${dbNameTest}_${i}`)
 
           this.currentSubProcess = this.buildSubProcess(currentDbTestUrl)
 
