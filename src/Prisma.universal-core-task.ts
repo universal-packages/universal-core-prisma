@@ -103,7 +103,7 @@ export default class PrismaTask extends CoreTask {
               level: 'QUERY',
               title: `Prisma test database ${dbName}_${i}`,
               category: 'PRISMA',
-              message: `Command ${this.directive} ${this.directiveOptions[0]} was also ran for test database ${dbName}_${i}`
+              message: `Command ${this.directive} ${this.directiveOptions[0]} was also ran for test database ${currentDbTestUrl}`
             },
             LOG_CONFIGURATION
           )
